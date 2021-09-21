@@ -150,11 +150,7 @@ namespace StoneAge {
           output += type;
           type = "";
         }
-        else
-        {
-          output += type;
-          type = "";
-        }
+
 
         number += String.Format($"| Number: {Cards[i].Number, -7}  ");
         if(newRow == 0)
@@ -162,11 +158,6 @@ namespace StoneAge {
           number += "|\n";
           output += number;
           output += "----------------------------------------------------------\n";
-          number = "";
-        }
-        else
-        {
-          output += number;
           number = "";
         }
       }
