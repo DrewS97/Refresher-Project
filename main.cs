@@ -20,6 +20,7 @@ namespace StoneAge {
       Game.Resources.Add(new Resource("Gemstones", "Shiny", 40));
 
 
+      Console.WriteLine(Game.Resources.Count);
       MenuOptions.Menu();
     }
   }

@@ -13,7 +13,7 @@ namespace StoneAge {
       Console.WriteLine("4. Find a Card -");
       Console.WriteLine("5. Add a Card -");
       Console.WriteLine("6. Add a Resource -");
-      Console.WriteLine($"Enter \"q\" to quit.");
+      Console.WriteLine("Enter \"q\" to quit.");
       Console.WriteLine("----------------------------\n");
       MenuUses();
     }
