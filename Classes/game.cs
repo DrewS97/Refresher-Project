@@ -42,119 +42,82 @@ namespace StoneAge {
       string color = "";
       string number = "";
       string quantity = "";
-      int counter = 3;
-      double num = Resources.Count / 3;
-      double loop = Math.Ceiling(num);
-      int index = 0;
       
-      for(double i = 0; i < loop; i++)
+      for(int i = 0; i < Resources.Count; i++)
       {
-        if((Resources.Count - counter) >= 0)
+        if(i % 3 == 0 && i != 0)
         {
-          for(int j = counter - 3; j < counter; j++)
-          {
-            name += String.Format($"| Name: {Resources[j].Name,-9}  ");
-          }
-
           name += "|\n";
           output += name;
           name = "";
-        }
-        else
-        {
-          name += String.Format($"| Name: {Resources[index].Name,-9}  ");
-        }
-
-        if((Resources.Count - counter) >= 0)
-        {
-          for(int j = counter - 3; j < counter; j++)
-          {
-            color += String.Format($"| Color: {Resources[j].Color,-8}  ");
-          }
 
           color += "|\n";
           output += color;
           color = "";
-        }
-        else
-        {
-          color += String.Format($"| Color: {Resources[index].Color,-8}  ");
-        }
-
-        if((Resources.Count - counter) >= 0)
-        {
-          for(int j = counter - 3; j < counter; j++)
-          {
-            quantity += String.Format($"| Quantity: {Resources[j].Quantity, -5}  ");
-          }
 
           quantity += "|\n";
           output += quantity;
           output += "----------------------------------------------------------\n";
           quantity = "";
         }
-        else
-        {
-          quantity += String.Format($"| Quantity: {Resources[index].Quantity, -5}  ");
-        }
 
-        if((Resources.Count - counter) >= 0)
-        {
-          index = index + 3;
-        }
-        else
-        {
-          index++;
-        }
-        counter = counter + 3;
-      }
 
-      output += name + "\n";
-      name = "";
-      output += color + "\n";
-      color = "";
-      output += quantity + "\n";
-      quantity = "";
-
-      output += "\n--------------------------Cards--------------------------\n";
-      
-      counter = 1;
-
-      for(int i = 0; i < Cards.Count; i++)
-      {
-        double newRow = 1;
-        if(i != 0)
-        {
-          newRow = counter % 3;
-        }
-        counter++;
-
-        name += String.Format($"| Name: {Cards[i].Name,-9}  ");
-
-        if(newRow == 0)
+        name += String.Format($"| Name: {Resources[i].Name,-9}  ");
+        color += String.Format($"| Color: {Resources[i].Color,-8}  ");
+        quantity += String.Format($"| Quantity: {Resources[i].Quantity, -5}  ");
+        if (i == Resources.Count - 1)
         {
           name += "|\n";
           output += name;
           name = "";
+
+          color += "|\n";
+          output += color;
+          color = "";
+
+          quantity += "|\n";
+          output += quantity;
+          output += "----------------------------------------------------------\n";
+          quantity = "";
         }
-        else
+
+
+      }
+
+
+      output += "\n--------------------------Cards--------------------------\n";
+
+      for(int i = 0; i < Cards.Count; i++)
+      {
+        if(i % 3 == 0 && i != 0)
         {
+          name += "|\n";
           output += name;
           name = "";
-        }
-        
-        type += String.Format($"| Type: {Cards[i].Type,-9}  ");
-        if(newRow == 0)
-        {
+
           type += "|\n";
           output += type;
           type = "";
+
+          number += "|\n";
+          output += number;
+          output += "----------------------------------------------------------\n";
+          number = "";
         }
 
-
+        name += String.Format($"| Name: {Cards[i].Name,-9}  ");
+        type += String.Format($"| Type: {Cards[i].Type,-9}  ");
         number += String.Format($"| Number: {Cards[i].Number, -7}  ");
-        if(newRow == 0)
+        if (i == Cards.Count - 1)
         {
+          name += "|\n";
+          output += name;
+          name = "";
+
+          type += "|\n";
+          output += type;
+          type = "";
+
           number += "|\n";
           output += number;
           output += "----------------------------------------------------------\n";
